@@ -16,7 +16,7 @@ Woks better with a big history record :
 ## Todo :
 * better visual for long commands
 * future usage of ~/.my_history_selection to sort by most used command, rather than last used commands
-* improve unreliable regex fo zsh history file (sed 's/.*:0;//')
+* improve unreliable regex for zsh history file (sed 's/.*:0;//')
 * use "rofi" instead of "dialog"
 * usage of regular expressions
 * use current shell, instead of default shell $SHELL
