@@ -4,7 +4,7 @@ This script gives a simple interactive access to the user's history.
 The selected command is then put in the clipboard using xclip.  
 The user can then paste the command using Ctrl + Shift + v in the terminal.  
 
-This script do not alter the history and should work in all situation.
+This script do not alter the history and should work in all situations.
 
 It is supposed to be launched with a simple "h whatever"  
 With the help of an alias : `alias h="/path/to/this/script"` (in ".bashrc" file, ".zshrc",  etc...)
@@ -15,6 +15,13 @@ If you remember that the command contain the word "debug", you can use "h debug"
 Works better with a big history record :  
 `export HISTSIZE=10000` (in ".bashrc" file, ".zshrc",  etc...)
 
+##Use rofi interface with shortcut into you window manager. (Alt + h)  
+
+###OPENBOX :
+`<keybind key="A-h"><action name="execute">  
+	<command>/home/umen/SyNc/Scripts/System/better_history/better_history.sh rofi</command>  
+</action></keybind>`
+
 ## Todo :
 * better visual for long commands
 * future usage of ~/.my_history_selection to sort by most used command, rather than last used commands
@@ -24,6 +31,7 @@ Works better with a big history record :
 * use current shell, instead of default shell $SHELL
 * support for more shells
 * support help on dependancies for more distributions
+* find the directory the command was run on, based on previous "cd" to recreate full path and/or test if target exist (file)
 
 ## Code explanations :
 1. remove duplicates from the list : `awk '!x[$0]++'`
