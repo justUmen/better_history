@@ -15,12 +15,10 @@ If you remember that the command contain the word "debug", you can use "h debug"
 Works better with a big history record :  
 `export HISTSIZE=10000` (in ".bashrc" file, ".zshrc",  etc...)
 
-##Use rofi interface with shortcut into you window manager. (Alt + h)  
+##Use rofi interface with shortcut for your window manager. (Alt + h)  
 
 ###OPENBOX :
-`<keybind key="A-h"><action name="execute">  
-	<command>/home/umen/SyNc/Scripts/System/better_history/better_history.sh rofi</command>  
-</action></keybind>`
+`<keybind key="A-h"><action name="execute"><command>/home/umen/SyNc/Scripts/System/better_history/better_history.sh rofi</command></action></keybind>`
 
 ## Todo :
 * better visual for long commands
@@ -31,7 +29,8 @@ Works better with a big history record :
 * use current shell, instead of default shell $SHELL
 * support for more shells
 * support help on dependancies for more distributions
-* find the directory the command was run on, based on previous "cd" to recreate full path and/or test if target exist (file)
+* find the directory the command was run on, based on previous "cd" to recreate absolute path and/or test if target exist (file)
+* after rofi selection, open a terminal and prepare to run the command (as well as absolute path)
 
 ## Code explanations :
 1. remove duplicates from the list : `awk '!x[$0]++'`
