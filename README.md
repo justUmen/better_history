@@ -31,6 +31,7 @@ Works better with a big history record :
 * support help on dependancies for more distributions
 * find the directory the command was run on, based on previous "cd" to recreate absolute path and/or test if target exist (file)
 * after rofi selection, open a terminal and prepare to run the command (as well as absolute path)
+* is it working if the user have customized history format ? if not, find solution
 
 ## Code explanations :
 1. remove duplicates from the list : `awk '!x[$0]++'`
