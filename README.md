@@ -1,16 +1,16 @@
 # better_history.sh
 
-This script gives a simple interactive access to the user's history.  
-The selected command is then put in the clipboard using xclip.  
+This script gives a friendlier access to the user's shell history.  
+The user can select a previous command and it will be put in the clipboard's buffer using xclip.  
 The user can then paste the command using Ctrl + Shift + v in the terminal.  
 
 This script do not change the history file and should work in all situations.
 
-It is supposed to be launched with a simple "h whatever"  
-With the help of an alias : `alias h="/path/to/this/script"` (in ".bashrc" file, ".zshrc",  etc...)
+It is supposed to be launched with a simple "h what_ever_you_want"  
+Thanks to an alias : `alias h="/path/to/this/script"` (in ".bashrc" file, ".zshrc",  etc...)
 
 Especially useful when you try to use a long command you used a long time ago.
-If you remember that the command contain the word "debug", you can use "h debug" to find it back quickly in its integrity.
+If you remember that the command contain the word "debug", you can use "h debug" to find it back quickly.
 
 Works better with a big history record :  
 `export HISTSIZE=10000` (in ".bashrc" file, ".zshrc",  etc...)
