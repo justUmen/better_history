@@ -41,6 +41,10 @@ if [ "$1" == "rofi" ];then
 	}
 	command=`cat .my_history| rofi -dmenu`
 	echo "$command"  >> ~/.my_history_selection
+	if [ "$command" != "" ];then
+		notify-send "CLIPBOARD : $command"
+		#termite -e ""
+	fi
 else
 	cmd=(dialog --nocancel --keep-tite --menu "Select command for your clipboard:" 100 100 100)
 	options=()
@@ -53,11 +57,19 @@ else
 	done < ~/.my_history
 	choice=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 	command="${commands[`expr $choice - 1`]}"
+	if [ "$command" != "" ];then
+		echo "CLIPBOARD : $command"
+		notify-send "CLIPBOARD : $command"
+		echo -n "$command" | xclip -selection c
+		### future usage (see Todo in README.md) ###
+		echo "$command" >> ~/.my_history_selection
+	fi
 fi
 
-if [ "$command" != "" ];then
-	echo "CLIPBOARD : $command"
-	echo -n "$command" | xclip -selection c
-	### future usage (see Todo in README.md) ###
-	echo "$command" >> ~/.my_history_selection
-fi
+#if [ "$command" != "" ];then
+#	echo "CLIPBOARD : $command"
+#	echo -n "$command" | xclip -selection c
+#	### future usage (see Todo in README.md) ###
+#	echo "$command" >> ~/.my_history_selection
+#fi
+#
