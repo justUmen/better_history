@@ -65,11 +65,3 @@ else
 		echo "$command" >> ~/.my_history_selection
 	fi
 fi
-
-#if [ "$command" != "" ];then
-#	echo "CLIPBOARD : $command"
-#	echo -n "$command" | xclip -selection c
-#	### future usage (see Todo in README.md) ###
-#	echo "$command" >> ~/.my_history_selection
-#fi
-#
