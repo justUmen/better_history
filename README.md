@@ -4,7 +4,7 @@ This script gives a simple interactive access to the user's history.
 The selected command is then put in the clipboard using xclip.  
 The user can then paste the command using Ctrl + Shift + v in the terminal.  
 
-This script do not alter the history and should work in all situations.
+This script do not change the history file and should work in all situations.
 
 It is supposed to be launched with a simple "h whatever"  
 With the help of an alias : `alias h="/path/to/this/script"` (in ".bashrc" file, ".zshrc",  etc...)
