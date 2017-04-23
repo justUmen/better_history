@@ -8,9 +8,6 @@ ROFI_AUTORUN=1 # =1 to automatically launched the selected command in a terminal
 #After autorun, the default shell is executed
 
 #Check dependancies :
-command -v dialog >/dev/null 2>&1 || {
-	echo -e >&2 "Package \"dialog\" is needed\n - Archlinux : sudo pacman -S dialog\n - Debian : sudo apt-get install dialog";exit 231;
-}
 command -v xclip >/dev/null 2>&1 || {
 	echo -e >&2 "Package \"xclip\" is needed\n - Archlinux : sudo pacman -S xclip\n - Debian : sudo apt-get install xclip";exit 231;
 }
@@ -56,6 +53,9 @@ if [ "$1" == "rofi" ];then
 	fi
 else
 	#CLI - Command Line Interface
+	command -v dialog >/dev/null 2>&1 || {
+		echo -e >&2 "Package \"dialog\" is needed\n - Archlinux : sudo pacman -S dialog\n - Debian : sudo apt-get install dialog";exit 231;
+	}
 	cmd=(dialog --nocancel --keep-tite --menu "Select command for your clipboard:" 100 100 100)
 	options=()
 	commands=()
