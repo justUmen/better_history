@@ -2,6 +2,11 @@
 #Creator : https://github.com/justUmen
 #Link : https://github.com/justUmen/better_history
 
+#OPTIONS FOR ROFI
+TERMINAL="xterm" #Terminal need to support option -e, like xterm, lxterminal...
+ROFI_AUTORUN=1 # =1 to automatically launched the selected command in a terminal.
+#After autorun, the default shell is executed
+
 #Check dependancies :
 command -v dialog >/dev/null 2>&1 || {
 	echo -e >&2 "Package \"dialog\" is needed\n - Archlinux : sudo pacman -S dialog\n - Debian : sudo apt-get install dialog";exit 231;
@@ -36,16 +41,21 @@ fi
 
 #Check if argument is rofi, otherwise use dialog
 if [ "$1" == "rofi" ];then
-	command -v dialog >/dev/null 2>&1 || {
-		echo -e >&2 "Package \"rofi\" is needed\n - Archlinux : sudo pacman -S rofi\n - Debian : sudo apt-get install rofi";exit 231;
+	#GUI - Graphical User Interface
+	command -v rofi >/dev/null 2>&1 || {
+		echo -e >&2 "Package \"rofi\" is needed\n - Archlinux : sudo pacman -S rofi\n - Debian : sudo apt-get install rofi";exit 231; #not tested for debian, rofi in repo ???
 	}
-	command=`cat .my_history| rofi -dmenu`
+	command=`cat .my_history| rofi -fullscreen -dmenu`
 	echo "$command"  >> ~/.my_history_selection
 	if [ "$command" != "" ];then
+		echo -n "$command" | xclip -selection c
 		notify-send "CLIPBOARD : $command"
-		#termite -e ""
+		if [ "$ROFI_AUTORUN" == "1" ];then
+			$TERMINAL -e "$command;$SHELL"
+		fi
 	fi
 else
+	#CLI - Command Line Interface
 	cmd=(dialog --nocancel --keep-tite --menu "Select command for your clipboard:" 100 100 100)
 	options=()
 	commands=()
@@ -65,3 +75,10 @@ else
 		echo "$command" >> ~/.my_history_selection
 	fi
 fi
+
+## Code explanations :
+#1. remove duplicates from the list : `awk '!x[$0]++'`
+#2. remove the "h" alias itself from the result : `sed '/^h /d'`
+#3. reverse the list, last commands stay top : `tac`
+#4. clean "zsh_history" into plain text : `sed 's/.*:0;//'`
+#5. use `readlink` if for example "/bin/sh" is a link towards "/usr/bin/zsh"
