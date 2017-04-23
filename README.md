@@ -9,7 +9,7 @@ Especially useful when you try to recover a long command you used a long time ag
 
 This script do not change the history file and should work in all situations. Or a least will.  
 
-##CLI : Command Line Interface - h
+## CLI : Command Line Interface - h
 
 From a terminal emulator, it is supposed to be launched with a simple "h what_ever_you_want"  
 Thanks to an alias : `alias h="/path/to/this/script"` (in ".bashrc" file, ".zshrc",  etc...)
