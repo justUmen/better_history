@@ -7,7 +7,7 @@ The user can then paste the command using Ctrl + Shift + v in the terminal. (Or 
 
 Especially useful when you try to recover a long command you used a long time ago.
 
-This script do not change the history file and should work in all situations. Or a least will.  
+This script __do not change the history file__ and should work in **all** situations. Or a least will.  
 
 ## CLI : Command Line Interface - h
 
@@ -19,15 +19,15 @@ If you remember that the command contain the word "debug", you can use "h debug"
 Works better with a big history record :  
 `export HISTSIZE=10000` (in ".bashrc" file, ".zshrc",  etc...)
 
-##GUI : Graphical User Interface - Rofi
+## GUI : Graphical User Interface - Rofi
 Use `rofi` interface with a shortcut for your window manager. (Alt + h)  
 
-###sxhkd ("sxhkdrc") : shortcut daemon for all window managers
+### sxhkd ("sxhkdrc") : shortcut daemon for all window managers
 `alt + h`  
 &nbsp;&nbsp;&nbsp;&nbsp;`/home/umen/SyNc/Scripts/System/better_history/better_history.sh rofi`
 
 
-###openbox only ("rc.xml") :
+### openbox only ("rc.xml") :
 `<keybind key="A-h">`  
 &nbsp;`<action name="execute">`  
 &nbsp;&nbsp;`<command>/home/umen/SyNc/Scripts/System/better_history/better_history.sh rofi</command>`  
