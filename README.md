@@ -46,6 +46,7 @@ Use `rofi` interface with a shortcut for your window manager. (Alt + h)
 * is it working if the user have customized history format ? if not, find solution
 * Bug with selection with "Binary file (standard input)" match ???
 
-##Not Todo (excluded on purpose, stay simple and portable)
+
+## Not Todo (excluded on purpose, stay simple and portable)
 * modify the history file in any way to "add useful informations"
 * usage of regular expressions in search
