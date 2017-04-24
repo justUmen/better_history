@@ -17,9 +17,9 @@ ARGS=$@
 if [ "$SHELL" == "/usr/bin/zsh" ] || [ "`readlink $SHELL`" == "zsh" ]; then
 	#ZSH
 	if [ "$1" == "" ] || [ "$1" == "rofi" ]; then
-		cat ~/.zsh_history | sed 's/.*:0;//' | awk '!x[$0]++' | tac | sed '/^h /d' > ~/.my_history
+		cat ~/.zsh_history | sed 's/.*:[0-9]*;//' | awk '!x[$0]++' | tac | sed '/^h /d' > ~/.my_history
 	else
-		cat ~/.zsh_history | sed 's/.*:0;//' | grep "$ARGS" | tac | awk '!x[$0]++' | sed '/^h /d' > ~/.my_history
+		cat ~/.zsh_history | sed 's/.*:[0-9]*;//' | grep "$ARGS" | tac | awk '!x[$0]++' | sed '/^h /d' > ~/.my_history
 	fi
 else
 	#USE BASH AS DEFAULT (NOT TESTED)
